@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ThemeProvider, CssBaseline} from '@mui/material';
+import { theme } from './resources/Theme';
+
+
+import Header from './header/Header';
+import Welcome from './welcome/Welcome';
+import About from './about/About';
+import Projects from './projects/Projects';
+import Contact from './contact/Contact';
+
+
 
 function App() {
+
+
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const y = element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Header scrollToSection={scrollToSection} />
+      <Welcome scrollToSection={scrollToSection} />
+      <About id="about" />
+      <Projects id="projects" />
+      <Contact id="contact" />
+    </ThemeProvider>
   );
 }
 
