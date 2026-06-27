@@ -27,7 +27,7 @@ function Projects() {
                         </Box>
                     </CardContent>
                     <CardActions sx={{ px: 2, pb: 2 }}>
-                        <Button size="small" color="primary" startIcon={<GitHubIcon />}>Code</Button>
+                        <Button size="small" color="primary" startIcon={<GitHubIcon />} href={project.link} target="_blank" rel="noopener noreferrer">Code</Button>
                     </CardActions>
                     </Card>
                 </Container>
